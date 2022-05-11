@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>issues module &#8212; WGUPS Delivery Scheduler 1.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="loading module" href="loading.html" />
+    <link rel="prev" title="dijkstras module" href="dijkstras.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-issues">
+<span id="issues-module"></span><h1>issues module<a class="headerlink" href="#module-issues" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="issues.add_delayed">
+<span class="sig-prename descclassname"><span class="pre">issues.</span></span><span class="sig-name descname"><span class="pre">add_delayed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curr_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delayed_pkgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package_hash</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#issues.add_delayed" title="Permalink to this definition">¶</a></dt>
+<dd><p>If any packages have reached their delayed time, they are added to the appropriate package list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curr_time</strong> (<em>datetime.time</em>) – the time to check packages</p></li>
+<li><p><strong>delayed_pkgs</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – list of delayed package ids</p></li>
+<li><p><strong>package_hash</strong> (<a class="reference internal" href="data_structures.html#data_structures.chaining_hash_table.ChainingHashTable" title="data_structures.chaining_hash_table.ChainingHashTable"><em>ChainingHashTable</em></a><em>[</em><em>str</em><em>, </em><a class="reference internal" href="models.html#models.package.Package" title="models.package.Package"><em>Package</em></a><em>]</em>) – the Package objects</p></li>
+<li><p><strong>priority_dict</strong> (<em>dict</em><em>[</em><em>datetime.time -&gt; list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – package lists associated with each deadline</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="issues.check_issues">
+<span class="sig-prename descclassname"><span class="pre">issues.</span></span><span class="sig-name descname"><span class="pre">check_issues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">truck_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delayed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package_hash</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#issues.check_issues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the status of all issues of delayed packages and addresses them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>truck_time</strong> (<em>datetime.time</em>) – the time to check the status</p></li>
+<li><p><strong>delayed</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – list of package ids that are delayed</p></li>
+<li><p><strong>priority_dict</strong> (<em>dict</em><em>[</em><em>datetime.time -&gt; list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – package lists associated with each deadline</p></li>
+<li><p><strong>package_hash</strong> (<a class="reference internal" href="data_structures.html#data_structures.chaining_hash_table.ChainingHashTable" title="data_structures.chaining_hash_table.ChainingHashTable"><em>ChainingHashTable</em></a><em>[</em><em>str</em><em>, </em><a class="reference internal" href="models.html#models.package.Package" title="models.package.Package"><em>Package</em></a><em>]</em>) – the Package objects</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="issues.fix_address">
+<span class="sig-prename descclassname"><span class="pre">issues.</span></span><span class="sig-name descname"><span class="pre">fix_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pkg_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package_hash</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#issues.fix_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces the current address of a package with a new address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pkg_id</strong> (<em>str</em>) – id of the package</p></li>
+<li><p><strong>new_address</strong> (<em>str</em>) – the new address of the package</p></li>
+<li><p><strong>package_hash</strong> (<a class="reference internal" href="data_structures.html#data_structures.chaining_hash_table.ChainingHashTable" title="data_structures.chaining_hash_table.ChainingHashTable"><em>ChainingHashTable</em></a><em>[</em><em>str</em><em>, </em><a class="reference internal" href="models.html#models.package.Package" title="models.package.Package"><em>Package</em></a><em>]</em>) – the Package objects</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">WGUPS Delivery Scheduler</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">WGUPS_Delivery Scheduler</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cli.html">cli module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csv_parsing.html">csv_parsing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_structures.html">data_structures package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="delivering.html">delivering module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dijkstras.html">dijkstras module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">issues module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading.html">loading module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html">models package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">WGUPS_Delivery Scheduler</a><ul>
+      <li>Previous: <a href="dijkstras.html" title="previous chapter">dijkstras module</a></li>
+      <li>Next: <a href="loading.html" title="next chapter">loading module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Steven Kazmierkiewicz.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/issues.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

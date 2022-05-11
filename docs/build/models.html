@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>models package &#8212; WGUPS Delivery Scheduler 1.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="utils module" href="utils.html" />
+    <link rel="prev" title="main module" href="main.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="models-package">
+<h1>models package<a class="headerlink" href="#models-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-models.location">
+<span id="models-location-module"></span><h2>models.location module<a class="headerlink" href="#module-models.location" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="models.location.Location">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">models.location.</span></span><span class="sig-name descname"><span class="pre">Location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zipcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.location.Location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a physical location and the distances to all other possible destinations from this location.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.location.Location.add_destination">
+<span class="sig-name descname"><span class="pre">add_destination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.location.Location.add_destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a possible destination from this location.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<em>string</em>) – the address of the destination</p></li>
+<li><p><strong>distance</strong> (<em>float</em>) – the distance to the destination</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.location.Location.get_distance">
+<span class="sig-name descname"><span class="pre">get_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.location.Location.get_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the distance to a destination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>address</strong> (<em>string</em>) – the address of the destination</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the distance to the destination</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-models.package">
+<span id="models-package-module"></span><h2>models.package module<a class="headerlink" href="#module-models.package" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="models.package.Package">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">models.package.</span></span><span class="sig-name descname"><span class="pre">Package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zipcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'At</span> <span class="pre">Hub'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">req_truck</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">siblings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.package.Package" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a package to be delivered.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.package.Package.AT_HUB">
+<span class="sig-name descname"><span class="pre">AT_HUB</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'At</span> <span class="pre">Hub'</span></em><a class="headerlink" href="#models.package.Package.AT_HUB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.package.Package.DELAYED">
+<span class="sig-name descname"><span class="pre">DELAYED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'Delayed'</span></em><a class="headerlink" href="#models.package.Package.DELAYED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.package.Package.DELIVERED">
+<span class="sig-name descname"><span class="pre">DELIVERED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'Delivered'</span></em><a class="headerlink" href="#models.package.Package.DELIVERED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.package.Package.EN_ROUTE">
+<span class="sig-name descname"><span class="pre">EN_ROUTE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'En</span> <span class="pre">Route'</span></em><a class="headerlink" href="#models.package.Package.EN_ROUTE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.package.Package.PRIORITY_1">
+<span class="sig-name descname"><span class="pre">PRIORITY_1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">datetime.time(9,</span> <span class="pre">0)</span></em><a class="headerlink" href="#models.package.Package.PRIORITY_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.package.Package.PRIORITY_2">
+<span class="sig-name descname"><span class="pre">PRIORITY_2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">datetime.time(10,</span> <span class="pre">30)</span></em><a class="headerlink" href="#models.package.Package.PRIORITY_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.package.Package.PRIORITY_3">
+<span class="sig-name descname"><span class="pre">PRIORITY_3</span></span><em class="property"> <span class="pre">=</span> <span class="pre">datetime.time(23,</span> <span class="pre">59)</span></em><a class="headerlink" href="#models.package.Package.PRIORITY_3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.package.Package.advance_status">
+<span class="sig-name descname"><span class="pre">advance_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curr_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truck_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.package.Package.advance_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Advances status of package to the next logical status and tracks the time the status change was made.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>truck_id</strong> (<em>int</em>) – id of the truck the package is on or delivered by</p></li>
+<li><p><strong>curr_time</strong> (<em>datetime.time</em>) – time of the status change</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.package.Package.print_snapshot">
+<span class="sig-name descname"><span class="pre">print_snapshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.package.Package.print_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a snapshot of the package in the state it would have been at the time specified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> (<em>datetime.time</em>) – the time for the snapshot of the package’s state</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-models.truck">
+<span id="models-truck-module"></span><h2>models.truck module<a class="headerlink" href="#module-models.truck" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="models.truck.Truck">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">models.truck.</span></span><span class="sig-name descname"><span class="pre">Truck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_address</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.truck.Truck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a delivery truck and keeps track of the packages loaded on to it.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.truck.Truck.MAX_PKGS">
+<span class="sig-name descname"><span class="pre">MAX_PKGS</span></span><em class="property"> <span class="pre">=</span> <span class="pre">16</span></em><a class="headerlink" href="#models.truck.Truck.MAX_PKGS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.truck.Truck.SPEED">
+<span class="sig-name descname"><span class="pre">SPEED</span></span><em class="property"> <span class="pre">=</span> <span class="pre">18.0</span></em><a class="headerlink" href="#models.truck.Truck.SPEED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.truck.Truck.add_package">
+<span class="sig-name descname"><span class="pre">add_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pkg_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.truck.Truck.add_package" title="Permalink to this definition">¶</a></dt>
+<dd><p>If there is room on the truck, the package is added to the truck.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>USED IN A PREVIOUS VERSION. NOT CURRENTLY USED.
+Use <strong>add_package_dijkstras</strong> instead.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pkg_id</strong> – the id of the package to add to the truck</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if successful</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.truck.Truck.add_package_dijkstras">
+<span class="sig-name descname"><span class="pre">add_package_dijkstras</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pkg_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pkg_dist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.truck.Truck.add_package_dijkstras" title="Permalink to this definition">¶</a></dt>
+<dd><p>If there is room on the truck, the package is added to the truck.</p>
+<p><em>This version uses Dijkstra’s Algorithm.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pkg_dist</strong> (<em>float</em>) – distance of the shortest path to the package</p></li>
+<li><p><strong>pkg_id</strong> (<em>string</em>) – the id of the package to add to the truck</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if successful</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.truck.Truck.deliver">
+<span class="sig-name descname"><span class="pre">deliver</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.truck.Truck.deliver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pops the first package off the package list and returns the package ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>id of first package on package list</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.truck.Truck.empty">
+<span class="sig-name descname"><span class="pre">empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.truck.Truck.empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the truck is empty.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the truck is empty</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.truck.Truck.full">
+<span class="sig-name descname"><span class="pre">full</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.truck.Truck.full" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks to see if the truck is full.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the truck is full</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.truck.Truck.last_package">
+<span class="sig-name descname"><span class="pre">last_package</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.truck.Truck.last_package" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the id of the last package to be delivered.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>USED IN A PREVIOUS VERSION. NOT CURRENTLY USED.
+Use <strong>last_package_dijkstras</strong> instead.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>id of the last package</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.truck.Truck.last_package_dijkstras">
+<span class="sig-name descname"><span class="pre">last_package_dijkstras</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.truck.Truck.last_package_dijkstras" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the id of the last package to be delivered.</p>
+<p><em>This version uses Dijkstra’s Algorithm.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>id of the last package</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.truck.Truck.peek">
+<span class="sig-name descname"><span class="pre">peek</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.truck.Truck.peek" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks what the next package id is, but does not remove it from the truck.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the id of the next package to be delivered, None if the truck is empty</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-models">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-models" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">WGUPS Delivery Scheduler</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">WGUPS_Delivery Scheduler</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cli.html">cli module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csv_parsing.html">csv_parsing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_structures.html">data_structures package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="delivering.html">delivering module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dijkstras.html">dijkstras module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="issues.html">issues module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loading.html">loading module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">models package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">WGUPS_Delivery Scheduler</a><ul>
+      <li>Previous: <a href="main.html" title="previous chapter">main module</a></li>
+      <li>Next: <a href="utils.html" title="next chapter">utils module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Steven Kazmierkiewicz.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/models.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
